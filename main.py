@@ -1,25 +1,27 @@
-
-# Created on 10/01/2020
-
-# Author - KacpersDev
-
-print("Enter the number of friends joining (including you) : ")
+print("Enter the number of friends joining (including you): ")
 guests = int(input())
-value = {"test": 0}
+friends = dict()
 
-def update(value, people):
-    a = {f'{people}': 0}
-    return value.update(a)
 def party():
     if guests <= 0:
         return print("No one is joining for the party")
     else:
         if guests > 0:
+            print("")
             print("Enter the name of every friend (including you), each on a new line: ")
-            value.pop('test')
             for guests_value in range(guests):
                 guests_value = input()
-                update(value, guests_value)
+                friends[guests_value] = 0
 party()
 if guests > 0:
-    print(value)
+    print()
+    total = int(input("Enter the total bill value:"))
+    per_user = round(total / guests, 2)
+    for f in friends:
+        if per_user % 2 == 0:
+            round(per_user, 2)
+            friends[f] = int(per_user)
+        else:
+            friends[f] = per_user
+    print()
+    print(friends)
